@@ -33,7 +33,7 @@ pipeline {
                 // archive artifacts
                 archiveArtifacts artifacts: 'build/libs/*.jar'
                 // publish junit test results
-                junit 'build/test-results/**/*.xml'
+                junit 'build/test-results/**/*.xml'            }
         }
     }
 }
