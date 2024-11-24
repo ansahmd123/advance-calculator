@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Build&Test') {
             steps {
-                sh 'gradle clean build test'
+                sh 'gradle clean build test jacocoTestReport'
             }
         }
         stage('Upload Jacoco Coverage') {
@@ -30,8 +30,8 @@ pipeline {
         }
         stage('Post-Build Actions') {
             steps {
-                // archive artifacts
-                archiveArtifacts artifacts: 'build/libs/*.jar'
+                //archive all artifacts
+                archiveArtifacts artifacts: '**/build/*'
                 // publish junit test results
                 junit 'build/test-results/**/*.xml'            }
         }
