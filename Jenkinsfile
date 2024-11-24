@@ -34,10 +34,6 @@ pipeline {
                 archiveArtifacts artifacts: 'build/libs/*.jar'
                 // publish junit test results
                 junit 'build/test-results/**/*.xml'
-                // publish coverage report
-                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'build/reports/jacoco', reportFiles: 'index.html', reportName: 'Code Coverage Report'])
-                cleanWs()
-            }
         }
     }
 }
